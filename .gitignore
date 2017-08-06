@@ -10,3 +10,6 @@ coverage
 
 # environment
 .env
+
+# next output
+.next

@@ -21,13 +21,12 @@ app.prepare().then(() => {
 			url += `&${query}=${req.query[query]}`
 		}
 
-		fetchAsync(url)
-			.then(data => {
-				res.status(200).send(data)
-			})
-			.catch(error => {
-				res.status(400).send(error)
-			})
+		try {
+			const data = await fetchAsync(url)
+			res.status(200).send(data)
+		} catch (error) {
+			res.status(400).send(error)
+		}
 	})
 
 	server.get("*", (req, res) => {

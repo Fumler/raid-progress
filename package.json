@@ -1,0 +1,26 @@
+{
+	"name": "curve",
+	"version": "1.0.0",
+	"description": "Progress checker for WoW raids",
+	"main": "index.js",
+	"author": "Fredrik Pettersen",
+	"license": "MIT",
+	"scripts": {
+		"dev": "nodemon server.js",
+		"build": "next build",
+		"start": "NODE_ENV=production node server.js"
+	},
+	"dependencies": {
+		"babel-plugin-styled-components": "^1.1.7",
+		"dotenv": "^4.0.0",
+		"express": "^4.15.3",
+		"isomorphic-unfetch": "^2.0.0",
+		"next": "beta",
+		"nodemon": "^1.11.0",
+		"prettier": "^1.5.3",
+		"react": "^15.6.1",
+		"react-dom": "^15.6.1",
+		"react-ga": "^2.2.0",
+		"styled-components": "^2.1.2"
+	}
+}

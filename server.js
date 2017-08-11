@@ -13,7 +13,7 @@ const API_KEY = process.env.API_KEY || ""
 app.prepare().then(() => {
 	const server = express()
 
-	server.get("/fetch/:region/:realm/:name", async (req, res) => {
+	server.get("/api/:region/:realm/:name", async (req, res) => {
 		let url = `https://${req.params.region}.api.battle.net/wow/character/${req
 			.params.realm}/${req.params.name}?apikey=${API_KEY}`
 
@@ -27,6 +27,10 @@ app.prepare().then(() => {
 		} catch (error) {
 			res.status(400).send(error)
 		}
+	})
+
+	server.get("/:region/:realm/:name", (req, res) => {
+		return app.render(req, res, "/character", req.query)
 	})
 
 	server.get("*", (req, res) => {

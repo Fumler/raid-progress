@@ -1,20 +1,26 @@
-import React from "react"
+import { PureComponent } from "react"
 
 import Layout from "../components/Layout"
 
-export default class Character extends React.Component {
-	static async getInitialProps({ req }) {
+export default class Character extends PureComponent {
+	static async getInitialProps({ pathname, asPath }) {
 		return {
-			req,
+			pathname,
+			asPath,
 		}
 	}
 
 	render() {
+		const vars = this.props.asPath.split("/")
 		return (
 			<div>
-				<p>
-					{this.props.req}
-				</p>
+				{vars.map(item => {
+					return (
+						<p>
+							{item}
+						</p>
+					)
+				})}
 			</div>
 		)
 	}
